@@ -1,0 +1,18 @@
+{
+    "name": "shindig"
+  , "version": "0.0.1"
+  , "dependencies": {
+        "express": "3.*"
+      , "connect-assets": "2.1.x"
+      , "jade": "*"
+      , "stylus": "*"
+      , "coffee-script": "*"
+    }
+  , "scripts": {
+      "start": "server.js"
+    }
+  , "engines": {
+        "node": "0.10.1"
+      , "npm": "1.1.x"
+    }
+}
