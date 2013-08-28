@@ -20,6 +20,9 @@ app.configure ->
   app.use express.logger('dev')
   app.use express.bodyParser()
   app.use express.methodOverride()
+  app.use express.cookieParser()
+  app.use express.cookieSession({secret: 'NnToYnVbMG/+Sl7qQnCrfrNSgcVI3c1Ag1mLZVDjnU3QNzxWL25Mzztgfencid72
+Og5HwTm8aQCOUJIBCD/43A=='})
   app.use require('connect-assets')(src: "#{__dirname}/assets")
   app.use app.router
 
@@ -30,5 +33,5 @@ app.configure 'development', ->
 require("#{__dirname}/routes")(app)
 
 # Server
-http.createServer(app).listen app.get('port'), ->
+app.listen app.get('port'), ->
   console.log "Express server listening on port #{app.get 'port'} in #{app.settings.env} mode"

@@ -7,3 +7,6 @@ module.exports = (app) ->
 
   # Controllers
   app.helpers.autoload "#{__dirname}/../app/controllers", app
+
+  # Models
+  app.helpers.autoload "#{__dirname}/../app/models", app
