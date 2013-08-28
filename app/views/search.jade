@@ -6,10 +6,11 @@ block title
 block content
   ul#search-results
     each result in results.items
-      if result.id.kind == "youtube#video"
+      if result.kind == "youtube#video"
         li
-          a(href="/watch/#{result.id.videoId}")
+          a(href="/watch/#{result.id}")
             img(src=result.snippet.thumbnails.default.url, width=120, height=90)
             .info
               .title=result.snippet.title
               .by By #{result.snippet.channelTitle}
+              .views #{parseInt(result.statistics.viewCount).commaize()} views

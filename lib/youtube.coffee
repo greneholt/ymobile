@@ -102,7 +102,13 @@ module.exports = (app) ->
 					callback null, info
 
 		@search = (q, callback) =>
-			request "https://www.googleapis.com/youtube/v3/search?key=#{API_KEY}&maxResults=20&part=snippet&q=#{encodeURIComponent(q)}", (err, response, body) =>
+			request "https://www.googleapis.com/youtube/v3/search?key=#{API_KEY}&maxResults=20&part=id&q=#{encodeURIComponent(q)}", (err, response, body) =>
 				return callback err if err
 
-				callback null, JSON.parse(body)
+				results = JSON.parse body
+
+				videoIds = (item.id.videoId for item in results.items when item.id.kind == "youtube#video").join ','
+
+				request "https://www.googleapis.com/youtube/v3/videos?key=#{API_KEY}&part=snippet%2CcontentDetails%2Cstatistics&id=#{encodeURIComponent(videoIds)}", (err, response, body) =>
+					callback null, JSON.parse(body)
+

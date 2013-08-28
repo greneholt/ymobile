@@ -19,8 +19,11 @@ Array::last = ->
 
 # Capitalize a string
 # string => String
-String::capitalize = () ->
-    this.replace /(?:^|\s)\S/g, (a) -> a.toUpperCase()
+String::capitalize = ->
+  this.replace /(?:^|\s)\S/g, (a) -> a.toUpperCase()
+
+Number::commaize = ->
+  this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 # Classify a string
 # application_controller => ApplicationController
