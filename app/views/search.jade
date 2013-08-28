@@ -1,0 +1,15 @@
+extends layout
+
+block title
+  title ymobile :: search "#{q}"
+
+block content
+  ul#search-results
+    each result in results.items
+      if result.id.kind == "youtube#video"
+        li
+          a(href="/watch/#{result.id.videoId}")
+            img(src=result.snippet.thumbnails.default.url, width=120, height=90)
+            .info
+              .title=result.snippet.title
+              .by By #{result.snippet.channelTitle}

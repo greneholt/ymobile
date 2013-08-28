@@ -1,0 +1,16 @@
+extends layout
+
+block title
+  title ymobile :: #{videoInfo.title}
+
+block content
+
+  h1=videoInfo.title
+  h2 By #{videoInfo.author}
+
+  video(src=videoInfo.formats[videoInfo.useFormat], controls, poster=videoInfo.poster, preload="none", width="100%", height="200")
+
+  ul
+    each url, format in videoInfo.formats
+      li
+        a(href=url)=format

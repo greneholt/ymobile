@@ -2,10 +2,19 @@ doctype 5
 html(lang="en")
   head
     meta(charset="utf-8")
-    title ymobile
+    block title
+      title ymobile
+    #meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+    meta(name="viewport", content="width=320, user-scalable=no")
     != css('styles.css')
 
-  body(data-view="#{view}")
+  body
+    form(action="/search", method="get")
+      - if (typeof(q) === 'undefined') {
+      -   q = null
+      - }
+      input#search(type="text", name="q", placeholder="Search", value=q)
+
     block content
 
     != js('scripts.js')

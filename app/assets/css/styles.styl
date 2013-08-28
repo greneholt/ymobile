@@ -1,29 +1,76 @@
-// Based on <https://github.com/heliom/stylus-utils/blob/master/styles.styl-sample>
-// @import "nib"
+// Functions
 
-// Reset ---------------------------------------------------------------------
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+
+// Reset
+
 *
-  margin: 0; padding: 0
-  -webkit-box-sizing: border-box
-  -moz-box-sizing: border-box
-  box-sizing: border-box
+  margin 0
+  padding 0
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
 
-// Base ----------------------------------------------------------------------
-$background-color = #f4f4f4
-
-html
-  font-size: 62.5%
-  height: 100%
+// Everything
 
 body
-  font-size: 16px
-  font-size: 1.6rem
-  background-color: $background-color
+  font-size 16px
+  background-color #030303
 
 body, legend, input, textarea, button
   font-family: 'Helvetica Neue'
-  line-height: 1.4
-  color: #333
+  color: #ccc
+  font-size 16px
 
-a:link, a:visited { color: deeppink }
-a:focus, a:hover, a:visited:hover { color: hotpink }
+input
+  color #333
+  border 1px solid #222
+  background-color #eee
+  padding 3px
+
+a:link, a:visited { color: #ccc }
+a:focus, a:hover, a:visited:hover { color: #ddd }
+
+h1
+  font-size 20px
+  padding 0 4px
+
+h2
+  font-size 14px
+  padding 0 4px
+  color #888
+
+input#search
+  width 310px
+  margin 5px
+  border-radius(5px)
+
+ul#search-results
+  display block
+  list-style-type none
+
+  li
+    position relative
+    height 90px
+    width 320px
+    margin 5px 0
+    background-color #191919
+
+    &:first-child
+      margin-top 0
+
+    .info
+      position absolute
+      left 120px
+      top 0
+      padding 5px
+      width 190px
+      text-shadow #000 0 0 5px
+      color #fff
+      font-size 10px
+
+      .title
+        font-size 12px
