@@ -92,7 +92,7 @@ module.exports = (app) ->
 			return info
 
 		@getVideoInfo = (videoId, callback) =>
-			request "https://www.youtube.com/get_video_info?&video_id=#{videoId}&eurl=http%3A%2F%2Fwww%2Eyoutube%2Ecom%2F&asv=3&sts=#{@signatureDecipher.timestamp}", (err, response, body) =>
+			request {url: "https://www.youtube.com/get_video_info?&video_id=#{videoId}&eurl=http%3A%2F%2Fwww%2Eyoutube%2Ecom%2F&asv=3&sts=#{@signatureDecipher.timestamp}", headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.59 (KHTML, like Gecko) Version/6.1 Safari/537.59' }}, (err, response, body) =>
 				return callback err if err
 
 				info = @processVideoInfo body
