@@ -9,4 +9,4 @@ module.exports = (app) ->
   app.helpers.autoload "#{__dirname}/../app/controllers", app
 
   # Models
-  app.helpers.autoload "#{__dirname}/../app/models", app
+  # app.helpers.autoload "#{__dirname}/../app/models", app
